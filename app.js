@@ -14,7 +14,7 @@ var app = express();
 
 //configure mongoose
 
-mongoose.connect("mongodb://Tagada85:kallon85@ds145315.mlab.com:45315/book_trade");
+mongoose.connect("mongodb://Tagada85:kallon85@ds021026.mlab.com:21026/book_trade");
 const db = mongoose.connection;
 mongoose.Promise = global.Promise;
 
