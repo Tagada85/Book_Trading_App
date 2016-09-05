@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.text-center
+    h1= title
+    p Welcome to #{title}
+  if books
+    h3 List of Books:
+    div
+    for book in books
+        div.col-sm-3
+            p=book.title
+            img(src=book.image_cover).cover_img
+            br
+            span='By ' + book.author

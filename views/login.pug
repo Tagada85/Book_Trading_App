@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1.text-center Log In Page
+	form(method="POST" action='/login').form-horizontal
+		div.form-group
+			label(for='username').control-label.col-sm-4 Username
+			input(type='text' name='username' id='username' required).col-sm-8
+		div.form-group
+			label(for='password').control-label.col-sm-4 Password
+			input(type='password' name='password' id='password' required).col-sm-8
+		div.form-group
+			input(type='submit' value='Log In').btn.btn-primary.btn-lg

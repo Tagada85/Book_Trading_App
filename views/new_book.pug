@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h1 Fill the form to add a new book
+	p Please only add books that you possess
+	form(method='post' action='/new_book').form-horizontal
+		div.form-group
+			label(for='title').control-label.col-sm-2 Title:
+			input(type='text' id='title' name='title').col-sm-6
+		div.form-group
+			label(for='author').control-label.col-sm-2 Author:
+			input(type='text' id='author' name='author').col-sm-6
+		div.form-group
+			label(for='cover_image').control-label.col-sm-2 Image Url:
+			input(type='text' id='cover_image' name='cover_image').col-sm-6
+		div.form-group
+			input(type='submit' value='Add Book').btn.btn-success

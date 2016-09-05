@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body.container
+    header.clearfix
+        ul.nav.nav-tabs.pull-right
+            li
+                a(href='/') Home
+            if userId
+                li
+                    a(href='/new_book') Add Book
+                li
+                    a(href='/profile') Profile
+                li
+                    a(href="/trades") Trades
+                li
+                    a(href='/logout').btn.btn-danger Log Out
+            else
+                li
+                    a(href='/login') Log In
+                li
+                    a(href='/signup') Sign Up
+    if userId
+        p='Connected as ' + userId
+    block content
+
+

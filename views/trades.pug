@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    div.text-center.col-xs-6
+        h1 Trading Page
+        p Choose the books you want to trade
+        h3 Your Books
+        form(action='/trades' method="POST")
+            label(for="my_books") My books
+            select(id='my_books' name='my_book')
+                for book in books
+                    if(book.owner_username == userId)
+                        option=book.title
+
+            label(for='other_books') Other books
+            select(id='other_books' name='other_book')
+                for book in books
+                    if(book.owner_username != userId)
+                        option=book.title
+            input(type='submit' value='Ask for Trade').btn.btn-lg.btn-info
+
+    div.text-center.col-xs-6
+        h3 Trades
+            if userInfo.trades.length != 0
+                for trade in userInfo.trades
+                    if(trade.bookOneOwner == userId)
+                        div
+                            p='Book you want ' + trade.bookTwoTitle
+                            p='Book you want to trade: ' + trade.bookOneTitle
+                            p='Person : ' + trade.bookTwoOwner
+                    else
+                        div
+                            p=trade.bookOneOwner + ' wants to trade a book!'
+                            p='He wants ' + trade.bookTwoTitle
+                            p='And you can have ' + trade.bookOneTitle
+                            form(action='/tradeForm' method='POST')
+                                input(type='hidden' name='bookOneOwner' value=trade.bookOneOwner)
+                                input(type='hidden' name='bookOneTitle' value=trade.bookOneTitle)
+                                input(type='hidden' name='bookTwoTitle' value=trade.bookTwoTitle)
+                                label(for='yes') YES
+                                input(type='radio' name='answer' value='yes' id='yes')
+                                br
+                                label(for='NO') NO
+                                input(type='radio' name='answer' value='no' id='no' )
+                                input(type='submit' value='GO')
+            else
+                h4 Currently no trades
+        

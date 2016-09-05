@@ -1,0 +1,23 @@
+{
+  "name": "book_trade",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "~1.13.2",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-session": "^1.14.1",
+    "jade": "~1.11.0",
+    "mocha": "^3.0.2",
+    "mongoose": "^4.5.10",
+    "morgan": "~1.6.1",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
+  }
+}

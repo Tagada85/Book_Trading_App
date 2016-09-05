@@ -1,0 +1,31 @@
+extends layout
+	
+block content
+	h1 Profile Page
+	h4 My informations
+	p='Username: ' + info.username
+	if !info.city
+		p='City: ' 
+	else
+		p='City: ' + info.city
+	if !info.state
+		p='State: '
+	else
+		p='State: ' + info.state
+	if !info.fullName
+		p='Full Name: '
+	else
+		p='Full Name: ' + info.fullName
+
+	form(action='/profile' method='POST').form-horizontal.text-center
+		div.form-group
+			label(for='city') City: 
+			input(type='text' id='city' name='city')
+		div.form-group
+			label(for='state') State:
+			input(type='text' id='state' name='state')
+		div.form-group
+			label(for='fullName') Full Name:
+			input(type='text' id='fullName' name='fullName')
+		input(type='submit' value='Update Info').btn.btn-primary.btn-lg
+
