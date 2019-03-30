@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
-
+console.log('Hello')
 var app = express();
 
 //configure mongoose
